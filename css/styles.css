@@ -1,0 +1,254 @@
+/* ===========================
+   Minimal Dark Resume v5
+
+   Type scale:
+     Name:    2.25rem / 700
+     Body:    0.9375rem (15px) / 400
+     Small:   0.8125rem (13px) / 400
+
+   Accent: #e08a5e (warm copper)
+   =========================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #111111;
+  color: #d0d0d0;
+  line-height: 1.6;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  text-wrap: pretty;
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem;
+}
+
+/* Links */
+a {
+  color: #d0d0d0;
+  text-decoration: none;
+  border-bottom: 1px solid #333;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+a:hover {
+  color: #e08a5e;
+  border-color: #e08a5e;
+}
+
+/* Emphasis — key metrics and impact */
+strong {
+  font-weight: 400;
+  color: #c8c8c8;
+}
+
+/* Dividers */
+hr {
+  border: none;
+  border-top: 1px solid #1e1e1e;
+  margin: 2.5rem 0;
+}
+
+/* Hero */
+.hero {
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #e0e0e0;
+}
+
+.tagline {
+  color: #777;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+
+.meta {
+  font-size: 0.8125rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+.meta a {
+  color: #777;
+  border-bottom-color: #2a2a2a;
+}
+
+.meta a:hover {
+  color: #e08a5e;
+  border-color: #e08a5e;
+}
+
+/* Body text */
+.body {
+  line-height: 1.75;
+  color: #aaa;
+}
+
+/* Section headings */
+h2 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Entries */
+.entry {
+  margin-bottom: 2.5rem;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.entry-header + .role {
+  margin-top: 0.125rem;
+  margin-bottom: 0.85rem;
+}
+
+h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.role {
+  color: #666;
+}
+
+.entry .body {
+  margin-top: 0.5rem;
+}
+
+/* Lists */
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+li {
+  line-height: 1.8;
+  color: #aaa;
+  padding-left: 0.875rem;
+  position: relative;
+}
+
+li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #2a2a2a;
+  font-size: 0.75rem;
+  top: 0.2em;
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+dt {
+  font-weight: 600;
+  color: #ccc;
+}
+
+dd {
+  color: #888;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #1e1e1e;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero {
+  animation: heroFadeIn 0.8s ease forwards;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 3.5rem 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.125rem;
+  }
+
+  hr {
+    margin: 2.5rem 0;
+  }
+}
