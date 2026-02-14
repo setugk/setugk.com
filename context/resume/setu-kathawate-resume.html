@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setu Kathawate — Product Designer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    @page {
+      margin: 0.5in;
+      size: letter;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.55;
+      color: #1a1a1a;
+      max-width: 6.5in;
+      margin: 0 auto;
+      padding: 0.5in;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+      }
+    }
+
+    header {
+      margin-bottom: 16pt;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 12pt;
+    }
+
+    h1 {
+      font-size: 18pt;
+      font-weight: 700;
+      margin-bottom: 2pt;
+    }
+
+    .title {
+      font-size: 11pt;
+      color: #555;
+      margin-bottom: 8pt;
+    }
+
+    .contact {
+      font-size: 9pt;
+      color: #333;
+    }
+
+    .contact a {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .contact span {
+      margin: 0 4pt;
+      color: #999;
+    }
+
+    section {
+      margin-bottom: 20pt;
+      break-inside: avoid;
+    }
+
+    h2 {
+      font-size: 10pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5pt;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 3pt;
+      margin-bottom: 8pt;
+      break-after: avoid;
+    }
+
+    .about {
+      font-size: 9.5pt;
+      color: #333;
+    }
+
+    .entry {
+      margin-bottom: 12pt;
+    }
+
+    .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2pt;
+    }
+
+    h3 {
+      font-size: 10pt;
+      font-weight: 700;
+    }
+
+    .date {
+      font-size: 9pt;
+      color: #666;
+    }
+
+    .role {
+      font-size: 9pt;
+      color: #555;
+      margin-bottom: 4pt;
+    }
+
+    ul {
+      margin-left: 14pt;
+    }
+
+    li {
+      margin-bottom: 3pt;
+      font-size: 9.5pt;
+    }
+
+    strong {
+      font-weight: 500;
+      color: #111;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8pt 16pt;
+    }
+
+    .skill dt {
+      font-weight: 600;
+      font-size: 9.5pt;
+      margin-bottom: 1pt;
+    }
+
+    .skill dd {
+      font-size: 9.5pt;
+      color: #444;
+    }
+
+    .project {
+      margin-bottom: 8pt;
+    }
+
+    .project:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .project h3 {
+      font-size: 9.5pt;
+    }
+
+    .project .meta {
+      font-size: 8.5pt;
+      color: #666;
+      margin-bottom: 2pt;
+    }
+
+    .project p {
+      font-size: 9.5pt;
+      color: #444;
+    }
+
+    .edu-entry {
+      margin-bottom: 6pt;
+    }
+
+    .edu-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .edu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .edu-entry h3 {
+      font-size: 9.5pt;
+    }
+
+    .edu-entry .degree {
+      font-size: 9.5pt;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Setu Kathawate</h1>
+    <p class="title">Product Designer</p>
+    <p class="contact">
+      Seattle, WA<span>·</span>
+      <a href="mailto:setu@setugk.com">setu@setugk.com</a><span>·</span>
+      <a href="https://www.linkedin.com/in/setukathawate/">LinkedIn</a><span>·</span>
+      <a href="https://github.com/setugk">GitHub</a><span>·</span>
+      <a href="https://www.setumadhava.com">Portfolio</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p class="about">Product Designer with 8+ years of experience building enterprise tools and platforms from 0 to 1. I combine deep UX foundations with AI-native design to prototype, validate, and ship end-to-end — not just designing tools, but building and publishing them. Currently leading AI integration efforts across my design studio and building agentic experiences that change how people interact with complex data.</p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-header">
+        <h3>Amazon</h3>
+        <span class="date">Mar 2020 – Present</span>
+      </div>
+      <p class="role">Sr. UX Designer</p>
+      <ul>
+        <li>Currently designing an AI-native data intelligence platform to help executives understand the biggest customer issues and opportunities in minutes through AI-powered 5-why analysis — replacing days of manual work across multiple teams.</li>
+        <li>Created an AI-powered work journal to help Amazonians document accomplishments and collaborations more consistently — improving the quality of peer and business review inputs. Currently piloting with beta testers.</li>
+        <li>Reduced AI tool onboarding from <strong>2–4 weeks to 15 minutes</strong> by creating a pre-configured starter kit — enabling <strong>45 designers</strong> to adopt AI-assisted development and saving <strong>160+ hours</strong> of cumulative ramp-up time.</li>
+        <li>Redesigned Driver Support across <strong>5 global marketplaces</strong>, reducing abandon rate from <strong>78% to 72.5%</strong> with context-aware flows and an AI chat assistant — <strong>$2.7M annualized savings</strong>.</li>
+        <li>Created an integrated operations platform for <strong>5,000+ managers</strong> across <strong>175+ fulfillment centers</strong>, unifying tools into a single dashboard to monitor network health and resolve exceptions — resulting in <strong>150M+ additional customer packages</strong> shipped on-time.</li>
+        <li>Led product strategy for Amazon's early generative AI initiative in fulfillment — replacing complex device interfaces with natural language: ask a question, get an answer, take action.</li>
+        <li>Piloted and scaled Agile UX studio-wide, enabling rollout to <strong>50+ practitioners</strong> — reducing handoff friction between design, product, and engineering.</li>
+        <li>Guided the studio's AI tooling strategy — identifying high-ROI tools and blocking investment in poor-fit options, accelerating AI adoption across <strong>45 designers</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <h3>The Home Depot</h3>
+        <span class="date">Apr 2018 – Feb 2020</span>
+      </div>
+      <p class="role">Sr. UX Designer</p>
+      <ul>
+        <li>Designed warehouse management dashboards that improved outbound shipping efficiency by <strong>&gt;25%</strong> and inbound receiving by <strong>&gt;100%</strong> — directly reducing operational costs.</li>
+        <li>Established data-driven design practices in a team with no prior design culture — shifting conversations from feature requests to user outcomes.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills-grid">
+      <div class="skill">
+        <dt>AI-Native Design & Agentic UX</dt>
+        <dd>LLM interfaces, trust frameworks, prompt engineering, constitution design for multi-role AI systems</dd>
+      </div>
+      <div class="skill">
+        <dt>Full-Stack Prototyping</dt>
+        <dd>React, Node.js, AWS Bedrock, Figma, Cursor, Claude Code, Vercel V0, Kiro</dd>
+      </div>
+      <div class="skill">
+        <dt>Security & Privacy for AI</dt>
+        <dd>Prompt injection protection, transparency policies, trust framework implementation</dd>
+      </div>
+      <div class="skill">
+        <dt>Design Systems & Patterns</dt>
+        <dd>Extending enterprise systems, creating new patterns for data experiences</dd>
+      </div>
+      <div class="skill">
+        <dt>Product Thinking & UX Strategy</dt>
+        <dd>User research, journey mapping, aligning design with business outcomes</dd>
+      </div>
+      <div class="skill">
+        <dt>Design Operations & Leadership</dt>
+        <dd>Scaling processes across a 45-person studio, mentoring designers</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>AI-assisted Work Journal</h3>
+        <span class="date">Feb 2026</span>
+      </div>
+      <p class="meta">React, Node.js, Claude 3.7 Sonnet · Internal</p>
+      <p>Helps designers capture career accomplishments through conversational AI that asks smart follow-ups — generating higher quality review documentation with less effort. Shipped in <strong>~30 hours</strong> using AI-directed development.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>Kiro Starter Kit</h3>
+        <span class="date">Feb 2026</span>
+      </div>
+      <p class="meta">Team Enablement Tool · Internal</p>
+      <p>Pre-configured AI workspace reducing designer onboarding from <strong>2–4 weeks to 15 minutes</strong>. Deployed across <strong>45-person studio</strong>.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>Northstar</h3>
+        <span class="date">Jan 2026</span>
+      </div>
+      <p class="meta">HTML/CSS/JS · <a href="https://northstar.s37u.com">northstar.s37u.com</a></p>
+      <p>Mobile-first PWA for quarterly goal tracking — upload a config, get a personalized dashboard with smart task suggestions based on available time.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-header">
+        <h3>Seafile MCP Server</h3>
+        <span class="date">Jan 2026</span>
+      </div>
+      <p class="meta">Python · <a href="https://github.com/setugk/seafile-mcp">github.com/setugk/seafile-mcp</a></p>
+      <p>Lets users browse, search, and manage files through natural conversation — instead of navigating complex folder structures.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <h3>University of Washington</h3>
+        <span class="date">2015–2017</span>
+      </div>
+      <p class="degree">MS, Human Centered Design and Engineering</p>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-header">
+        <h3>Visvesvaraya Technological University</h3>
+        <span class="date">2006–2010</span>
+      </div>
+      <p class="degree">BE, Electronics and Communications Engineering</p>
+    </div>
+  </section>
+</body>
+</html>

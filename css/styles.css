@@ -162,17 +162,17 @@ ul {
 li {
   line-height: 1.8;
   color: #aaa;
-  padding-left: 0.875rem;
+  padding-left: 1.25rem;
   position: relative;
 }
 
 li::before {
-  content: '—';
+  content: '•';
   position: absolute;
   left: 0;
-  color: #2a2a2a;
-  font-size: 0.75rem;
-  top: 0.2em;
+  color: #666;
+  font-size: 0.875rem;
+  top: 0;
 }
 
 /* Skills */
@@ -325,7 +325,7 @@ footer {
   }
 
   li::before {
-    color: #bbb;
+    color: #999;
   }
 
   .hero {

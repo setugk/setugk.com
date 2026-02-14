@@ -1,0 +1,81 @@
+Setu Kathawate
+Product Designer
+
+Seattle, WA
+setu@setugk.com
+https://www.linkedin.com/in/setukathawate/
+https://github.com/setugk
+https://www.setumadhava.com
+
+---
+
+ABOUT
+
+Product Designer with 8+ years of experience building enterprise data platforms and tools from 0 to 1. I define product vision at the intersection of data experience design and AI-powered innovation — prototyping, validating, and shipping end-to-end. Currently leading the UX vision for an AI-native data intelligence platform and driving AI integration across a 45-person design studio.
+
+---
+
+EXPERIENCE
+
+Amazon — Sr. UX Designer
+Mar 2020 – Present
+
+- Currently designing an AI-native data intelligence platform to help executives understand the biggest customer issues and opportunities in minutes through AI-powered 5-why analysis — replacing days of manual work across multiple teams.
+- Created an AI-powered work journal to help Amazonians document accomplishments and collaborations more consistently — improving the quality of peer and business review inputs. Currently piloting with beta testers.
+- Reduced AI tool onboarding from 2–4 weeks to 15 minutes by creating a pre-configured starter kit — enabling 45 designers to adopt AI-assisted development and saving 160+ hours of cumulative ramp-up time.
+- Redesigned Driver Support across 5 global marketplaces, reducing abandon rate from 78% to 72.5% by replacing fragmented support with context-aware flows and an AI chat assistant — $2.7M annualized savings.
+- Created an integrated operations platform for 5,000+ managers across 175+ fulfillment centers, unifying tools into a single dashboard to monitor network health and resolve exceptions — resulting in 150M+ additional customer packages shipped on-time.
+- Led product strategy for Amazon's early generative AI initiative in fulfillment — replacing complex device interfaces with natural language: ask a question, get an answer, take action.
+- Piloted and scaled Agile UX studio-wide, enabling UX Ops to roll it out to 50+ practitioners — reducing handoff friction between design, product, and engineering.
+- Guided the studio's AI tooling strategy — identifying high-ROI tools and blocking investment in poor-fit options, accelerating AI adoption across 45 designers.
+
+The Home Depot — Sr. UX Designer
+Apr 2018 – Feb 2020
+
+- Designed warehouse management dashboards that improved outbound shipping efficiency by >25% and inbound receiving by >100% — directly reducing operational costs and improving delivery reliability.
+- Established data-driven design practices in a team with no prior design culture — shifting conversations from feature requests to user outcomes.
+
+---
+
+SKILLS
+
+Data Experience Design
+Chat-with-data interfaces, agentic visualization patterns, dashboard design, and data platform UX. Designing how users query, explore, and act on complex datasets.
+
+AI-Native Design & Agentic UX
+LLM-powered interfaces, trust frameworks, prompt engineering, and constitution design for multi-role AI systems. Shaping how AI behaves, not just how it looks.
+
+Full-Stack Prototyping
+End-to-end from concept to working code — React, Node.js, AWS Bedrock, Figma, Cursor, Claude Code, Vercel V0, Kiro. Built production apps in 25 hours using AI-assisted workflows.
+
+Design Systems & Patterns
+Working within and extending enterprise design systems. Creating new patterns for data experiences while maintaining system coherence.
+
+Cross-Team Vision & Mentorship
+Aligning product, engineering, and design on complex challenges. Mentoring designers and scaling processes across a 45-person studio.
+
+---
+
+PROJECTS
+
+AI-assisted Work Journal — Feb 2026
+Internal Tool · React, Node.js, Claude 3.7 Sonnet
+Helps designers capture career accomplishments through conversational AI that asks smart follow-ups — generating higher quality review documentation with less effort. Shipped in ~30 hours using AI-directed development.
+
+Kiro Starter Kit — Feb 2026
+Team Enablement Tool · Markdown/Config · Internal
+Pre-configured AI workspace that reduced designer onboarding from 2–4 weeks to 15 minutes. Deployed across 45-person design studio, saving 160+ hours of learning time.
+
+Seafile MCP Server — Jan 2026
+Open Source · Python · https://github.com/setugk/seafile-mcp
+Lets users browse, search, and manage files through natural conversation — instead of navigating complex folder structures.
+
+---
+
+EDUCATION
+
+University of Washington — 2015–2017
+MS, Human Centered Design and Engineering
+
+Visvesvaraya Technological University — 2006–2010
+BE, Electronics and Communications Engineering
