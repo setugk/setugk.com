@@ -69,9 +69,13 @@ Setu is positioning himself as an AI-ready designer for senior/staff-level roles
 - The resume should read like a senior/staff designer who operates in ambiguity, defines problems, and influences at the director level.
 
 ## Resume content sources
+- Canonical PDF: `Setu Kathawate - Product Designer Resume.pdf` (in parent folder) — tighter, narrative-focused resume; drives parity for metrics and project list
 - Original resume: `Setu Kathawate Resume [2025] .docx` (in parent folder)
 - Amazon end-of-year performance review (provided in conversation, not saved as file)
 - Seafile MCP project: https://github.com/setugk/seafile-mcp
+
+## Online resume vs PDF
+The online version intentionally runs longer than the PDF — keeps richer detail (Full-Circle Design methodology, Kiro Starter Kit bullet, six skill categories, Home Depot metrics). PDF parity applies only to **projects** (Transcriptor, Recap, Northstar, Seafile MCP, PDF Compressor) and **key metrics** (6 practitioners on Recap, 4 designers shipping on studio infra, ~85% Transcriptor). Tagline stays 0→1 enterprise framing; PDF's "AI earns trust" positioning not ported.
 
 ## Skills (current)
 1. AI-Native Design & Agentic UX — includes prompt engineering, constitution design, trust frameworks
@@ -85,7 +89,6 @@ Setu is positioning himself as an AI-ready designer for senior/staff-level roles
 - Data Intelligence platform bullet needs outcomes (active project)
 - Case study pages — at least one deep dive (Driver Support or Data Intelligence)
 - Home Depot bullets could use more specifics if Setu remembers product/user details
-- Resume PDF needs to be re-saved after today's content changes
 - May migrate to Astro or Next.js when blog/case study content is added
 
 ## Project-specific conventions
