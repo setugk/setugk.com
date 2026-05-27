@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — Setu Kathawate</title>
+  <link rel="stylesheet" href="css/portfolio.css">
+</head>
+<body class="two-col-page">
+
+  <nav class="nav-rail" aria-label="Main navigation">
+    <ul class="nav-tabs">
+      <li>
+        <a href="index.html" class="nav-tab" aria-label="Home">
+          <span class="nav-indicator"></span>
+          <i data-lucide="house" width="24" height="24"></i>
+          <span class="nav-label">HOME</span>
+        </a>
+      </li>
+      <li>
+        <a href="work.html" class="nav-tab" aria-label="Work">
+          <span class="nav-indicator"></span>
+          <i data-lucide="briefcase-business" width="24" height="24"></i>
+          <span class="nav-label">WORK</span>
+        </a>
+      </li>
+      <li>
+        <a href="writing.html" class="nav-tab" aria-current="page" aria-label="Writing">
+          <span class="nav-indicator"></span>
+          <i data-lucide="notebook-pen" width="24" height="24"></i>
+          <span class="nav-label">WRITING</span>
+        </a>
+      </li>
+    </ul>
+    <button class="nav-sidebar-toggle" aria-label="Toggle sidebar">
+      <i data-lucide="panel-left-close" width="24" height="24"></i>
+    </button>
+  </nav>
+
+  <div class="two-col-layout">
+
+    <aside class="sidebar" aria-label="Writing list">
+      <div class="sidebar-header">
+        <i data-lucide="notebook-pen" width="24" height="24"></i>
+        <span class="sidebar-header-label">Writing</span>
+      </div>
+      <ul class="sidebar-items">
+        <li class="sidebar-item active" data-target="connected-steering" role="button" tabindex="0">
+          <div class="sidebar-item-content">
+            <div class="sidebar-item-title">The Connected Steering System</div>
+            <div class="sidebar-item-desc">How structured context files create continuity across AI sessions.</div>
+          </div>
+          <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+        </li>
+        <li class="sidebar-item" data-target="shepherd" role="button" tabindex="0">
+          <div class="sidebar-item-content">
+            <div class="sidebar-item-title">Shepherd Risk Prevention with Kiro</div>
+            <div class="sidebar-item-desc">Turning security vulnerabilities into preventable patterns.</div>
+          </div>
+          <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+        </li>
+        <li class="sidebar-item" data-target="design-intelligence" role="button" tabindex="0">
+          <div class="sidebar-item-content">
+            <div class="sidebar-item-title">Building a Design Intelligence Platform</div>
+            <div class="sidebar-item-desc">From spreadsheets to a unified data experience for UX teams.</div>
+          </div>
+          <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="detail-panel">
+
+      <article class="detail-content active" id="connected-steering">
+        <h1 class="detail-title">The Connected Steering System</h1>
+        <p class="detail-desc">How structured context files create continuity across AI sessions.</p>
+        <div class="detail-placeholder"></div>
+      </article>
+
+      <article class="detail-content" id="shepherd">
+        <h1 class="detail-title">Shepherd Risk Prevention with Kiro</h1>
+        <p class="detail-desc">Turning security vulnerabilities into preventable patterns.</p>
+        <div class="detail-placeholder"></div>
+      </article>
+
+      <article class="detail-content" id="design-intelligence">
+        <h1 class="detail-title">Building a Design Intelligence Platform</h1>
+        <p class="detail-desc">From spreadsheets to a unified data experience for UX teams.</p>
+        <div class="detail-placeholder"></div>
+      </article>
+
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

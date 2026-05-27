@@ -3,182 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Setu Kathawate — Product Designer</title>
-  <meta name="description" content="Product Designer with 8+ years of experience specializing in designing 0-to-1 enterprise tools and platforms.">
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <title>Setu Kathawate</title>
+  <link rel="stylesheet" href="css/portfolio.css">
 </head>
 <body>
-  <div class="container">
 
-    <!-- Hero -->
-    <header class="hero">
-      <h1>Setu Kathawate</h1>
-      <p class="tagline">Designing 0&rarr;1 enterprise products at the intersection of&nbsp;AI, data, and human-centered&nbsp;design.</p>
-      <nav class="contact">
-        Seattle, WA<span class="sep">&middot;</span><a href="mailto:setu@setugk.com">Email</a><span class="sep">&middot;</span><a href="https://www.linkedin.com/in/setukathawate/" target="_blank" rel="noopener">LinkedIn</a><span class="sep">&middot;</span><a href="https://github.com/setugk" target="_blank" rel="noopener">GitHub</a><span class="sep">&middot;</span><a href="https://www.setumadhava.com" target="_blank" rel="noopener">Portfolio</a><span class="sep">&middot;</span><a href="/context/resume/Setu Kathawate — Product Designer.pdf" target="_blank" rel="noopener">Resume</a>
-      </nav>
-    </header>
+  <nav class="nav-rail" aria-label="Main navigation">
+    <ul class="nav-tabs">
+      <li>
+        <a href="index.html" class="nav-tab" aria-current="page" aria-label="Home">
+          <span class="nav-indicator"></span>
+          <i data-lucide="house" width="24" height="24"></i>
+          <span class="nav-label">HOME</span>
+        </a>
+      </li>
+      <li>
+        <a href="work.html" class="nav-tab" aria-label="Work">
+          <span class="nav-indicator"></span>
+          <i data-lucide="briefcase-business" width="24" height="24"></i>
+          <span class="nav-label">WORK</span>
+        </a>
+      </li>
+      <li>
+        <a href="writing.html" class="nav-tab" aria-label="Writing">
+          <span class="nav-indicator"></span>
+          <i data-lucide="notebook-pen" width="24" height="24"></i>
+          <span class="nav-label">WRITING</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-    <!-- About -->
-    <section class="fade-in">
-      <h2>About</h2>
-      <p class="body">Product Designer with <strong class="m">8+ years</strong> of experience building enterprise tools and platforms from 0&rarr;1. I combine deep UX foundations with AI-native design to prototype, validate, and ship end-to-end — not just designing tools, but building and publishing them. Currently leading AI integration efforts across my design studio and building agentic experiences that change how people interact with complex&nbsp;data.</p>
-    </section>
+  <main class="home-main">
+    <div class="home-content">
 
-    <!-- Experience -->
-    <section class="fade-in">
-      <h2>Experience</h2>
-
-      <div class="entry">
-        <div class="entry-header">
-          <h3>Amazon</h3>
-          <span class="dates">Mar 2020 &ndash; Present</span>
+      <section class="intro" aria-label="Introduction">
+        <div class="intro-avatar">
+          <img src="assets/avatar.png" alt="Setu Kathawate">
         </div>
-        <p class="role">Sr. UX Designer</p>
+        <h1 class="intro-name">Setu Kathawate</h1>
+        <p class="intro-bio">Designer and product builder crafting tools that help people do meaningful work.</p>
+      </section>
 
-        <div class="chapter">
-          <span>AI &amp; Design Studio Leadership</span>
-          <span class="ch-date">2024 &ndash; Present</span>
+      <section class="section" aria-label="Projects">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <a href="work.html" class="view-all" aria-label="View all projects">
+            View all <i data-lucide="arrow-right" width="16" height="16"></i>
+          </a>
         </div>
-        <ul>
-          <li>Pioneered <strong>Full-Circle Design</strong>, a methodology that eliminates fidelity loss across the entire product development lifecycle by unifying research, design, prototyping, validation, and engineering handoff in a single AI-powered environment. Proved the approach on an executive reporting tool: code-based prototype achieved <strong class="m">1:1 pixel parity</strong> with production — zero specs, zero redlines, <strong class="m">&gt;90% reduction</strong> in handoff&nbsp;time.</li>
-          <li>Built the infrastructure to scale this new way of working across a 45-person design studio: a shared code repository (8–10 designers contributing within the first month), automated dev environment setup that reduced onboarding from <strong class="m">5+ hours to ~2 hours</strong> (fully independent, no hand-holding), and the studio's first designer-to-designer code&nbsp;collaboration.</li>
-          <li>Designing an AI-native data intelligence platform that helps Amazon's senior leaders make more informed, strategic decisions in minutes — surfacing the biggest customer issues and opportunities through automated 5-why analysis, replacing <strong class="m">days of manual work</strong> across multiple&nbsp;teams.</li>
-          <li>Created an AI-powered work journal to help Amazonians document accomplishments and collaborations more consistently — improving the quality of peer and business review inputs. Currently piloting with beta&nbsp;testers.</li>
-          <li>Built and deployed a Kiro Starter Kit that reduced onboarding time from <strong class="m">2-4 weeks to 15 minutes</strong> — enabling 45-person design studio to adopt AI-assisted development with pre-configured workflows, design system integration, and automated documentation patterns, saving <strong class="m">160+ hours</strong> of cumulative learning time. <strong class="m">4 designers</strong> have since shipped projects on this&nbsp;foundation.</li>
+        <ul class="item-list">
+          <li>
+            <a href="work.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Transcriptor</div>
+                <div class="list-item-desc">An audio transcription and intelligence tool for customer service teams.</div>
+              </div>
+              <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+            </a>
+          </li>
+          <li>
+            <a href="work.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Nucleus</div>
+                <div class="list-item-desc">A weekly CS performance report replacing legacy spreadsheet workflows.</div>
+              </div>
+              <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+            </a>
+          </li>
+          <li>
+            <a href="work.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Recap</div>
+                <div class="list-item-desc">A personal career journal that helps you remember what you've accomplished.</div>
+              </div>
+              <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+            </a>
+          </li>
         </ul>
+      </section>
 
-        <div class="chapter">
-          <span>Product Design &amp; Operations</span>
-          <span class="ch-date">2020 &ndash; 2024</span>
+      <section class="section" aria-label="Writing">
+        <div class="section-header">
+          <h2 class="section-title">Writing</h2>
+          <a href="writing.html" class="view-all" aria-label="View all writing">
+            View all <i data-lucide="arrow-right" width="16" height="16"></i>
+          </a>
         </div>
-        <ul>
-          <li>Led product strategy for one of Amazon's early generative AI initiatives in 2023 — an LLM-powered ambient intelligence project in fulfillment operations that replaced traditional I/O devices with a natural language interface: ask a question, get an answer, take&nbsp;action.</li>
-          <li>Redesigned Driver Support across <strong>5 marketplaces</strong>, reducing abandon rate from 78% to 72.5% by replacing fragmented support with context-aware flows and an AI chat assistant — <strong class="m">$2.7M annualized savings</strong> and <strong class="m">15.5% improvement</strong> in self-service&nbsp;efficacy.</li>
-          <li>Created an integrated operations platform for <strong class="m">5,000+ managers</strong> across <strong class="m">175+ fulfillment centers</strong>, unifying tools into a single dashboard to monitor network health and resolve exceptions — resulting in <strong class="m">150M+ additional customer packages</strong> shipped&nbsp;on-time.</li>
-          <li>Guided the studio's AI tooling strategy — identifying high-ROI tools and blocking investment in poor-fit options, accelerating AI adoption across <strong class="m">45&nbsp;designers</strong>.</li>
-          <li>Piloted and scaled the Agile UX process studio-wide, providing the data and feedback loop that enabled UX Ops to roll it out to <strong class="m">50+ practitioners</strong> — reducing handoff friction between design, product, and&nbsp;engineering.</li>
-          <li>Convinced director-level leadership to keep the existing design system by researching trade-offs across teams and presenting a clear cost-benefit case — saving months of migration work and preserving team&nbsp;velocity.</li>
+        <ul class="item-list">
+          <li>
+            <a href="writing.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">The Connected Steering System</div>
+                <div class="list-item-desc">How structured context files create continuity across AI sessions.</div>
+              </div>
+              <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+            </a>
+          </li>
+          <li>
+            <a href="writing.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Shepherd Risk Prevention with Kiro</div>
+                <div class="list-item-desc">Turning security vulnerabilities into preventable patterns.</div>
+              </div>
+              <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+            </a>
+          </li>
+          <li>
+            <a href="writing.html" class="list-item">
+              <div class="list-item-content">
+                <div class="list-item-title">Building a Design Intelligence Platform</div>
+                <div class="list-item-desc">From spreadsheets to a unified data experience for UX teams.</div>
+              </div>
+              <i data-lucide="chevron-right" class="list-item-chevron" width="24" height="24"></i>
+            </a>
+          </li>
         </ul>
-      </div>
+      </section>
 
-      <div class="entry">
-        <div class="entry-header">
-          <h3>The Home Depot</h3>
-          <span class="dates">Apr 2018 &ndash; Feb 2020</span>
+      <section class="section" aria-label="Connect">
+        <div class="section-header">
+          <h2 class="section-title">Connect</h2>
         </div>
-        <p class="role">Sr. UX Designer</p>
-        <ul>
-          <li>Designed warehouse management dashboards that improved outbound shipping efficiency by <strong class="m">&gt;25%</strong> and inbound receiving by <strong class="m">&gt;100%</strong> — directly reducing operational costs and improving delivery&nbsp;reliability.</li>
-          <li>Established data-driven design practices in a team with no prior design culture — shifting conversations from feature requests to user&nbsp;outcomes.</li>
-        </ul>
-      </div>
-    </section>
+        <div class="connect-grid">
+          <a href="https://linkedin.com/in/setukathawate" class="connect-grid-item" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i data-lucide="external-link" width="20" height="20"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://twitter.com/setugk" class="connect-grid-item" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+            <i data-lucide="external-link" width="20" height="20"></i>
+            <span>X</span>
+          </a>
+          <a href="mailto:hi@setugk.com" class="connect-grid-item" aria-label="Email">
+            <i data-lucide="mail" width="20" height="20"></i>
+            <span>hi@setugk.com</span>
+          </a>
+          <a href="resume.pdf" class="connect-grid-item" download aria-label="Download resume">
+            <i data-lucide="download" width="20" height="20"></i>
+            <span>Resume</span>
+          </a>
+        </div>
+      </section>
 
-    <!-- Skills -->
-    <section class="fade-in">
-      <h2>Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h4>AI-Native Design &amp; Agentic UX</h4>
-          <p>Designing for LLM-powered interfaces, chat-driven data experiences, and agentic workflows. Prompt engineering, modular constitution design for multi-role AI systems, and trust frameworks for AI&nbsp;products.</p>
-        </div>
-        <div class="skill-card">
-          <h4>Full-Stack Prototyping &amp; Development</h4>
-          <p>End-to-end from concept to working code — React, Node.js, AWS Bedrock, Cursor, Claude Code, Vercel V0, Lovable, and Kiro. Built production apps in ~30 hours using AI-assisted&nbsp;workflows.</p>
-        </div>
-        <div class="skill-card">
-          <h4>Security &amp; Privacy for AI</h4>
-          <p>Prompt injection protection, transparency policy design, and defense-in-depth thinking. Context-based access control, trust framework implementation, and defining what AI should — and shouldn't —&nbsp;reveal.</p>
-        </div>
-        <div class="skill-card">
-          <h4>Product Thinking &amp; UX Strategy</h4>
-          <p>User research, journey mapping, and aligning design decisions with business outcomes and customer&nbsp;needs.</p>
-        </div>
-        <div class="skill-card">
-          <h4>Design Operations &amp; Leadership</h4>
-          <p>Scaling processes across a 45-person design studio — from piloting AI tools to building documentation-as-code practices and onboarding&nbsp;materials.</p>
-        </div>
-        <div class="skill-card">
-          <h4>Tools &amp; Languages</h4>
-          <p>Figma, GitHub, Vercel, Python, HTML/CSS/JS. Comfortable across the design-to-development&nbsp;stack.</p>
-        </div>
-      </div>
-      <p class="keywords">Figma, Cursor, Claude Code, Vercel V0, Lovable, Kiro, GitHub, React, Node.js, AWS Bedrock, Python, HTML, CSS, JavaScript, GenAI, LLM, MCP, Agentic UX, Prompt Engineering, Trust Frameworks, AI Security, Privacy, Design Systems, Data Visualization, Prototyping, User Research, Information Architecture, Interaction&nbsp;Design</p>
-    </section>
+    </div>
+  </main>
 
-    <!-- Projects -->
-    <section class="fade-in">
-      <h2>Projects</h2>
-
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Transcriptor</h3>
-          <p class="project-tech">React, AWS Lambda, S3, Amazon Transcribe, SAM &middot; Internal &middot; Amazon</p>
-          <p>Research transcription tool with automatic speaker diarization, filler-word filtering, and AI-powered transcript cleanup. Replaced a manual Slack-based workflow, reducing research analysis time by <strong class="m">~85%</strong> and eliminating <strong class="m">4+ hours</strong> of manual speaker labeling per&nbsp;study.</p>
-        </div>
-        <div class="project-card">
-          <h3>Recap</h3>
-          <p class="project-tech">React, Node.js, Claude 3.7 Sonnet &middot; Internal &middot; Amazon</p>
-          <p>Conversational AI for career documentation with trust-building patterns for ambiguous input and structured output validation. Shipped in <strong class="m">~30&nbsp;hours</strong>, piloting with <strong class="m">6&nbsp;practitioners</strong>.</p>
-        </div>
-        <div class="project-card">
-          <h3>Kiro Starter Kit</h3>
-          <p class="project-tech">Markdown/Config &middot; Internal</p>
-          <p>Pre-configured AI workspace. Onboarding from <strong class="m">2-4 weeks to 15&nbsp;minutes</strong>. Deployed across 45-person studio, saving <strong class="m">160+&nbsp;hours</strong>.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://northstar.s37u.com" target="_blank" rel="noopener">Northstar</a></h3>
-          <p class="project-tech">HTML/CSS/JS &middot; <a href="https://github.com/setugk/northstar" target="_blank" rel="noopener">GitHub</a></p>
-          <p>Mobile-first PWA for quarterly goal tracking with smart task suggestions based on available&nbsp;time.</p>
-        </div>
-        <div class="project-card">
-          <h3><a href="https://github.com/setugk/seafile-mcp" target="_blank" rel="noopener">Seafile MCP Server</a></h3>
-          <p class="project-tech">Python &middot; Open Source</p>
-          <p>MCP server connecting Claude to self-hosted Seafile — file management through natural&nbsp;conversation.</p>
-        </div>
-        <div class="project-card">
-          <h3>PDF Compressor</h3>
-          <p class="project-tech">Personal</p>
-          <p>Built for my dad to self-service PDF compression and&nbsp;collation.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section class="fade-in">
-      <h2>Education</h2>
-      <div class="edu-grid">
-        <div class="edu-item">
-          <h3>University of Washington</h3>
-          <p class="degree">MS, Human Centered Design &amp;&nbsp;Engineering</p>
-          <span class="dates">2015 &ndash; 2017</span>
-        </div>
-        <div class="edu-item">
-          <h3>Visvesvaraya Technological University</h3>
-          <p class="degree">BE, Electronics &amp; Communications&nbsp;Engineering</p>
-          <span class="dates">2006 &ndash; 2010</span>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p>&copy; 2026 Setu Kathawate</p>
-    </footer>
-
-  </div>
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
