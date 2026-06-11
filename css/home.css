@@ -1,0 +1,630 @@
+/* Reserve scrollbar gutter so filter tab switches don't shift layout */
+html { scrollbar-gutter: stable; }
+
+/* ============================================
+   ATMOSPHERE — noise grain + streetlight scene
+   Noise lives in the body background stack so all
+   content (text, images, buttons) sits above it.
+   ============================================ */
+
+/* ============================================
+   TOP NAV
+   ============================================ */
+.top-nav {
+  position: fixed;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 1392px;
+  z-index: 10;
+  background: rgba(18, 18, 18, 0.55);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.nav-inner {
+  padding: var(--space-sm) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.top-nav-name {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.top-nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.top-nav-links a {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  transition: color 0.15s, background 0.15s;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: none;
+}
+
+.top-nav-links a:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-elevated);
+}
+
+.top-nav-links a.nav-current {
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+}
+
+/* Bird trigger — first nav item, to the left of Projects */
+.nav-game-trigger {
+  background: none;
+  border: none;
+  cursor: none;
+  color: var(--color-gold);
+  opacity: 0.5;
+  transition: opacity 0.2s;
+  padding: 0 10px;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-game-trigger:hover { opacity: 1; }
+
+body.game-mode .nav-game-trigger { display: none; }
+
+/* ============================================
+   PAGE LAYOUT
+   ============================================ */
+body.home-page {
+  padding-top: 96px;   /* 12px top gap + ~72px nav height + 12px breathing room */
+  padding-bottom: 56px;
+  background-color: #1F1F1F;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 95% 65% at -15% 115%, rgba(192, 118, 36, 0.36) 0%, transparent 60%),
+    radial-gradient(ellipse 145% 100% at -28% 128%, rgba(152, 92, 24, 0.21) 0%, transparent 70%),
+    linear-gradient(180deg, rgba(3, 3, 9, 0.88) 0%, rgba(3, 3, 9, 0.28) 35%, transparent 62%);
+  background-blend-mode: normal, normal, normal, normal;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 256px 256px, auto, auto, auto;
+  background-attachment: fixed;
+}
+
+.page-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-xl) var(--space-xxl);
+}
+
+/* ============================================
+   ABOUT
+   ============================================ */
+.about { margin-bottom: var(--space-xl); }
+
+.about-bio {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+  max-width: var(--content-max);
+}
+
+/* ============================================
+   FILTER TABS
+   ============================================ */
+.filter-tabs {
+  display: flex;
+  gap: var(--space-xxs);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  background: none;
+  border: none;
+  cursor: none;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background 0.15s;
+  line-height: var(--line-height-body);
+  white-space: nowrap;
+}
+
+.filter-tab:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-elevated);
+}
+
+.filter-tab.active {
+  background: var(--color-bg-card);
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   PROJECT LIST
+   ============================================ */
+.project-list { list-style: none; }
+
+.project-row {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: var(--space-md);
+  align-items: start;
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.project-row:last-child { border-bottom: 1px solid var(--color-border); }
+
+/* ============================================
+   PROJECT META (left column)
+   ============================================ */
+.project-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+  padding-top: var(--space-xxs);
+}
+
+.project-title {
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-body);
+  margin: 0;
+}
+
+.project-byline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxs);
+}
+
+.project-date {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-body);
+}
+
+.project-desc {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-body);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-xxs);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.read-more {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--font-size-base);
+  color: var(--color-gold);
+  margin-top: var(--space-xs);
+  transition: color 0.15s;
+}
+
+.read-more:hover { color: var(--color-gold-hover); }
+
+.project-byline .tag {
+  background: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+.project-byline .project-date::before {
+  content: '· ';
+  color: var(--color-text-inactive);
+}
+
+/* ============================================
+   CAROUSEL (right column)
+   ============================================ */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxs);
+}
+
+.carousel-viewport {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.slide-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: var(--color-bg-card);
+}
+
+.carousel-slide img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-xxs) 0;
+}
+
+.carousel-btn {
+  background: none;
+  border: none;
+  cursor: none;
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  line-height: 1;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: color 0.15s, background 0.15s;
+}
+
+.carousel-btn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-card);
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  transition: background 0.2s;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.dot.active { background: var(--color-text-secondary); }
+
+/* ============================================
+   STICKY CONTACT FOOTER
+   ============================================ */
+.contact-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-bg-primary);
+  border-top: 1px solid var(--color-border);
+  z-index: 10;
+  min-height: 56px;
+}
+
+body.game-mode .contact-footer { display: none; }
+
+.footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: var(--space-xs) var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 56px;
+}
+
+.footer-label {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.footer-links { display: flex; gap: var(--space-md); }
+
+.footer-links a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: var(--color-text-primary); }
+
+/* ============================================
+   BIRDS LAYER (game use only — no decorative birds)
+   ============================================ */
+.birds-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: clip;
+  z-index: 5;
+}
+
+.bird { position: absolute; }
+
+@keyframes fly-ltr {
+  from { transform: translateX(-80px); }
+  to   { transform: translateX(calc(100vw + 80px)); }
+}
+
+@keyframes fly-rtl {
+  from { transform: translateX(calc(100vw + 80px)); }
+  to   { transform: translateX(-80px); }
+}
+
+/* Allow rotated wing paths to render outside their SVG viewBox */
+.nav-game-trigger svg,
+.game-bird svg { overflow: visible; }
+
+@keyframes flap {
+  from { transform: rotate(-5deg); }
+  to   { transform: rotate(22deg); }
+}
+
+.nav-game-trigger:hover .wing-left,
+.nav-game-trigger:hover .wing-right {
+  animation: flap 0.42s ease-in-out infinite alternate;
+}
+
+.game-bird .wing-left,
+.game-bird .wing-right {
+  animation: flap 0.3s ease-in-out infinite alternate;
+}
+
+/* ============================================
+   DUCK HUNT — game mode
+   ============================================ */
+/* Restore game cursor on elements that have cursor:none */
+body.game-mode .filter-tab,
+body.game-mode .carousel-btn,
+body.game-mode .top-nav-links a { cursor: inherit; }
+
+body.game-mode {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cline x1='16' y1='1' x2='16' y2='5' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='27' x2='16' y2='31' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='1' y1='16' x2='5' y2='16' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='27' y1='16' x2='31' y2='16' stroke='white' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='white'/%3E%3C/svg%3E") 16 16, crosshair;
+  user-select: none;
+}
+
+.game-bird {
+  color: var(--color-gold);
+}
+
+@keyframes bird-shot {
+  0%   { opacity: 1; }
+  35%  { opacity: 1; transform: rotate(25deg) scale(1.1); }
+  100% { opacity: 0; transform: translateY(90px) rotate(100deg); }
+}
+
+.bird.shot {
+  animation: bird-shot 0.55s ease-in forwards !important;
+  pointer-events: none !important;
+}
+
+/* HUD — full-width bar at the bottom, replaces footer */
+.game-hud {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+  background: var(--color-bg-elevated);
+  border-top: 1px solid var(--color-border);
+  z-index: 20;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+}
+
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.hud-score strong { color: var(--color-gold); }
+
+.hud-bullets {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xxs);
+  color: var(--color-text-secondary);
+}
+
+.hud-bullet-bar {
+  width: 80px;
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.hud-bullet-fill {
+  height: 100%;
+  background: var(--color-gold);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.hud-right { color: var(--color-text-inactive); }
+
+/* Miss indicator */
+.miss-indicator {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  pointer-events: none;
+  z-index: 25;
+  transform: translate(-50%, -100%);
+  animation: miss-fade 0.65s ease-out forwards;
+}
+
+@keyframes miss-fade {
+  0%   { opacity: 1; transform: translate(-50%, -100%); }
+  100% { opacity: 0; transform: translate(-50%, -220%); }
+}
+
+/* Score pop — bird (+3 green) and object hit (−1 red) */
+.score-pop {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 25;
+  transform: translate(-50%, -100%);
+  animation: miss-fade 0.65s ease-out forwards;
+}
+
+.score-pop.pos { color: #5DBF75; }
+.score-pop.neg { color: #CF5B5B; }
+
+/* Individual char targets */
+.game-char { display: inline-block; }
+
+/* Object hit — vaporize */
+@keyframes vaporize {
+  0%   { transform: scale(1);   opacity: 1; filter: brightness(1); }
+  15%  { transform: scale(1.1); opacity: 1; filter: brightness(5); }
+  100% { transform: scale(1.4); opacity: 0; filter: brightness(1); }
+}
+
+.vaporized {
+  animation: vaporize 0.35s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Game over overlay */
+.game-over-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(31, 31, 31, 0.9);
+  z-index: 30;
+  gap: var(--space-xs);
+}
+
+.game-over-title {
+  font-weight: 700;
+  font-size: var(--font-size-xl);
+  color: var(--color-text-primary);
+}
+
+.game-over-stats {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.8;
+}
+
+.game-over-stats .stat-label { color: var(--color-text-inactive); }
+.game-over-stats .stat-hint  { color: var(--color-text-secondary); }
+
+.game-over-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.game-over-btn {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 16px;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-body);
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.game-over-btn:hover {
+  color: var(--color-text-primary);
+  border-color: var(--color-text-secondary);
+}
+
+/* ============================================
+   RESPONSIVE — tablet (≤900px: single column)
+   ============================================ */
+@media (max-width: 900px) {
+  .project-row {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-md) 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body.home-page { padding-top: 76px; overflow-x: clip; background-attachment: scroll, scroll, scroll, scroll; }
+  .top-nav { left: 12px; right: 12px; width: auto; transform: none; }
+  .nav-inner  { padding: var(--space-xs) var(--space-sm); }
+  .page-main  { padding: var(--space-md) var(--space-sm) var(--space-xxl); }
+  .footer-inner { padding: var(--space-xxs) var(--space-sm); gap: var(--space-xs); }
+  .footer-links { gap: var(--space-sm); }
+  .game-hud   { padding: 0 var(--space-sm); }
+  .nav-game-trigger { display: none; }
+}
+
+/* ============================================
+   RESPONSIVE — mobile nav stack (≤540px)
+   ============================================ */
+@media (max-width: 540px) {
+  body.home-page { padding-top: 112px; }  /* 12px gap + ~88px stacked nav + 12px room */
+
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding-top: var(--space-xxs);
+    padding-bottom: var(--space-xxs);
+  }
+
+  .footer-label,
+  .footer-links a { font-size: var(--font-size-xs); }
+}
