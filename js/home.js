@@ -40,6 +40,17 @@ function initCarousels() {
     prev?.addEventListener('click', () => goTo(index - 1));
     next?.addEventListener('click', () => goTo(index + 1));
     dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
+
+    // Swipe gestures
+    const viewport = carousel.querySelector('.carousel-viewport');
+    let swipeStartX = 0;
+    viewport.addEventListener('touchstart', (e) => {
+      swipeStartX = e.touches[0].clientX;
+    }, { passive: true });
+    viewport.addEventListener('touchend', (e) => {
+      const dx = swipeStartX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 40) dx > 0 ? goTo(index + 1) : goTo(index - 1);
+    }, { passive: true });
   });
 }
 
@@ -186,7 +197,8 @@ function renderGameOver() {
     <div class="game-over-title">Game over</div>
     <div class="game-over-stats">
       Score: <strong>${score}</strong> &nbsp;·&nbsp; Missed: <strong>${birdsMissed}</strong> &nbsp;·&nbsp; Accuracy: <strong>${accuracy}%</strong><br>
-      <span class="stat-hint">every 60 seconds on the site earns you +10 shots (max 200)</span><br>
+      <span class="stat-hint">every 60 seconds on the site earns you +10 shots (max 200)</span>
+      <button class="game-over-reset">reset bank</button><br>
       <span class="stat-label">You've started ${m.plays} game${m.plays === 1 ? '' : 's'} · replayed ${m.respawns} time${m.respawns === 1 ? '' : 's'}</span>
     </div>
     <div class="game-over-actions">
@@ -201,6 +213,13 @@ function renderGameOver() {
     if (!action) return;
     el.remove();
     if (action === 'replay') startGame(true);
+  });
+
+  el.querySelector('.game-over-reset')?.addEventListener('click', function() {
+    localStorage.removeItem('dh_active_seconds');
+    const hint = el.querySelector('.stat-hint');
+    if (hint) hint.textContent = 'shot bank reset — starts at 20 next game';
+    this.remove();
   });
 }
 
@@ -422,6 +441,52 @@ function initMagnetic() {
   });
 }
 
+/* ---- Copy toast ---- */
+function showCopyToast(text) {
+  let toast = document.querySelector('.copy-toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.className = 'copy-toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = text;
+  toast.classList.add('visible');
+  clearTimeout(toast._hideTimer);
+  toast._hideTimer = setTimeout(() => toast.classList.remove('visible'), 5000);
+}
+
+/* ---- Theme toggle ---- */
+function initTheme() {
+  const sw = document.querySelector('.light-switch');
+  if (!sw) return;
+
+  const apply = (isLight) => {
+    document.body.classList.toggle('light-mode', isLight);
+    sw.setAttribute('aria-checked', String(isLight));
+  };
+
+  apply(localStorage.getItem('theme') === 'light');
+
+  sw.addEventListener('click', () => {
+    const isLight = !document.body.classList.contains('light-mode');
+    apply(isLight);
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  });
+}
+
+/* ---- Contact links ---- */
+function initContactLinks() {
+  const emailLink = document.querySelector('.footer-links a[href^="mailto:"]');
+  if (!emailLink) return;
+  emailLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = emailLink.href.replace('mailto:', '');
+    navigator.clipboard.writeText(email)
+      .then(() => showCopyToast(`${email} copied`))
+      .catch(() => showCopyToast(email));
+  });
+}
+
 /* ---- Init ---- */
 document.addEventListener('DOMContentLoaded', () => {
   initFilters();
@@ -429,4 +494,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initGame();
   initMagnetic();
   initActiveTracking();
+  initContactLinks();
+  initTheme();
 });

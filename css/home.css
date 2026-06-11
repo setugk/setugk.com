@@ -18,9 +18,9 @@ html { scrollbar-gutter: stable; }
   width: calc(100% - 48px);
   max-width: 1392px;
   z-index: 10;
-  background: rgba(18, 18, 18, 0.55);
-  backdrop-filter: blur(28px) saturate(1.5);
-  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  background: rgba(18, 18, 18, 0.50);
+  backdrop-filter: blur(8px) saturate(1);
+  -webkit-backdrop-filter: blur(8px) saturate(1);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 14px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
@@ -85,25 +85,62 @@ html { scrollbar-gutter: stable; }
 
 body.game-mode .nav-game-trigger { display: none; }
 
+/* Physical light/dark mode switch — paddle slides up (on) or down (off) */
+.light-switch {
+  position: relative;
+  width: 14px;
+  height: 24px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.35);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.light-switch-paddle {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  height: 9px;
+  top: 2px;
+  background: var(--color-text-inactive);
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+  transform: translateY(11px); /* off (dark): paddle at bottom — 24-2-9-2 = 11px travel */
+  transition: transform 0.18s ease-in-out, background 0.18s;
+}
+
 /* ============================================
    PAGE LAYOUT
    ============================================ */
-body.home-page {
-  padding-top: 96px;   /* 12px top gap + ~72px nav height + 12px breathing room */
-  padding-bottom: 56px;
-  background-color: #1F1F1F;
+/* Fixed atmospheric background — sits above body's solid bg, below all content.
+   Using a real div (not ::before) avoids z-index ambiguity and works on iOS Safari. */
+.bg-atmo {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
   background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E"),
     radial-gradient(ellipse 95% 65% at -15% 115%, rgba(192, 118, 36, 0.36) 0%, transparent 60%),
     radial-gradient(ellipse 145% 100% at -28% 128%, rgba(152, 92, 24, 0.21) 0%, transparent 70%),
     linear-gradient(180deg, rgba(3, 3, 9, 0.88) 0%, rgba(3, 3, 9, 0.28) 35%, transparent 62%);
-  background-blend-mode: normal, normal, normal, normal;
-  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 256px 256px, auto, auto, auto;
-  background-attachment: fixed;
+}
+
+body.home-page {
+  padding-top: 96px;   /* 12px top gap + ~72px nav height + 12px breathing room */
+  padding-bottom: 56px;
+  background-color: var(--color-bg-primary);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.55' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 .page-main {
+  position: relative;
+  z-index: 2;  /* above .bg-atmo (z-index: 1), transparent so gradient shows through gaps */
   max-width: 1440px;
   margin: 0 auto;
   padding: var(--space-xl) var(--space-xl) var(--space-xxl);
@@ -136,7 +173,7 @@ body.home-page {
   border: none;
   cursor: none;
   font-family: var(--font-sans);
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
   padding: 4px 12px;
   border-radius: var(--radius-sm);
@@ -169,7 +206,6 @@ body.home-page {
   border-top: 1px solid var(--color-border);
 }
 
-.project-row:last-child { border-bottom: 1px solid var(--color-border); }
 
 /* ============================================
    PROJECT META (left column)
@@ -366,6 +402,27 @@ body.game-mode .contact-footer { display: none; }
 }
 
 .footer-links a:hover { color: var(--color-text-primary); }
+
+/* Clipboard copy toast — slides up from behind the footer */
+.copy-toast {
+  position: fixed;
+  bottom: 72px;  /* 56px footer + 16px gap */
+  left: 50%;
+  transform: translateX(-50%) translateY(calc(100% + 80px));  /* starts below viewport */
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-primary);
+  z-index: 9;  /* below footer (z-index: 10) so it slides up from behind it */
+  pointer-events: none;
+  white-space: nowrap;
+  transition: transform 0.4s ease-out;
+}
+
+.copy-toast.visible { transform: translateX(-50%) translateY(0); }
 
 /* ============================================
    BIRDS LAYER (game use only — no decorative birds)
@@ -589,6 +646,73 @@ body.game-mode {
   border-color: var(--color-text-secondary);
 }
 
+.game-over-reset {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-inactive);
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+  transition: color 0.15s;
+}
+
+.game-over-reset:hover { color: var(--color-text-secondary); }
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+body.light-mode {
+  --color-bg-primary:     #F5F0E8;
+  --color-bg-elevated:    #EDE8DF;
+  --color-bg-card:        #E2DBD0;
+  --color-accent:         #C4A882;
+  --color-text-primary:   #1C1814;
+  --color-text-secondary: #7A6E62;
+  --color-text-inactive:  #A89D90;
+  --color-border:         #D0C8BC;
+  --color-gold:           #B89B20;
+  --color-gold-hover:     #C9AC28;
+}
+
+body.light-mode .top-nav {
+  background: rgba(240, 234, 224, 0.78);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+body.light-mode .bg-atmo {
+  background-image:
+    radial-gradient(ellipse 85% 55% at -10% 110%, rgba(200, 150, 40, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 130% 80% at -18% 122%, rgba(180, 130, 30, 0.07) 0%, transparent 65%);
+}
+
+body.light-mode .game-over-overlay {
+  background: rgba(245, 240, 232, 0.96);
+}
+
+/* Crosshair swapped to dark ink for legibility on the warm light background */
+body.light-mode.game-mode {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%231C1814' stroke-width='1.5'/%3E%3Cline x1='16' y1='1' x2='16' y2='5' stroke='%231C1814' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='16' y1='27' x2='16' y2='31' stroke='%231C1814' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='1' y1='16' x2='5' y2='16' stroke='%231C1814' stroke-width='1.5' stroke-linecap='round'/%3E%3Cline x1='27' y1='16' x2='31' y2='16' stroke='%231C1814' stroke-width='1.5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.5' fill='%231C1814'/%3E%3C/svg%3E") 16 16, crosshair;
+}
+
+body.light-mode .light-switch {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 8px rgba(185, 155, 32, 0.25);
+}
+
+body.light-mode .light-switch-paddle {
+  transform: translateY(0);  /* on: paddle at top */
+  background: var(--color-gold);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+body.light-mode .game-bird { color: var(--color-text-primary); }
+
+body.light-mode .nav-game-trigger { color: var(--color-text-primary); }
+
 /* ============================================
    RESPONSIVE — tablet (≤900px: single column)
    ============================================ */
@@ -601,9 +725,9 @@ body.game-mode {
 }
 
 @media (max-width: 768px) {
-  body.home-page { padding-top: 76px; overflow-x: clip; background-attachment: scroll, scroll, scroll, scroll; }
+  body.home-page { padding-top: 76px; overflow-x: clip; }
   .top-nav { left: 12px; right: 12px; width: auto; transform: none; }
-  .nav-inner  { padding: var(--space-xs) var(--space-sm); }
+  .nav-inner  { padding: 16px; }
   .page-main  { padding: var(--space-md) var(--space-sm) var(--space-xxl); }
   .footer-inner { padding: var(--space-xxs) var(--space-sm); gap: var(--space-xs); }
   .footer-links { gap: var(--space-sm); }
@@ -615,14 +739,13 @@ body.game-mode {
    RESPONSIVE — mobile nav stack (≤540px)
    ============================================ */
 @media (max-width: 540px) {
-  body.home-page { padding-top: 112px; }  /* 12px gap + ~88px stacked nav + 12px room */
+  body.home-page { padding-top: 128px; }  /* 12px gap + ~104px stacked nav (16px padding all sides) + 12px room */
 
   .nav-inner {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-sm);
-    padding-top: var(--space-xxs);
-    padding-bottom: var(--space-xxs);
+    padding: 16px;
   }
 
   .footer-label,

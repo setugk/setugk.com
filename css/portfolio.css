@@ -3,11 +3,11 @@
    ============================================ */
 :root {
   /* Colors */
-  --color-bg-primary:     #1F1F1F;
-  --color-bg-elevated:    #242424;
-  --color-bg-card:        #2C2C2C;
+  --color-bg-primary:     #242424;
+  --color-bg-elevated:    #292929;
+  --color-bg-card:        #313131;
   --color-accent:         #4B3737;
-  --color-text-primary:   #F9F9F9;
+  --color-text-primary:   #E0E0E0;
   --color-text-secondary: #9E9E9E;
   --color-text-inactive:  #606060;
   --color-border:         #3B3B3B;

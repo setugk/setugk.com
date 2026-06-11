@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body class="home-page">
+<script>if(localStorage.getItem('theme')==='light')document.body.classList.add('light-mode');</script>
 
+  <div class="bg-atmo" aria-hidden="true"></div>
   <div class="birds-layer" aria-hidden="true"></div>
 
   <header class="top-nav">
@@ -29,6 +31,9 @@
         <a href="#projects" class="nav-current">Projects</a>
         <a href="writing.html">Writing</a>
         <a href="Setu Kathawate - Product Designer Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="light-switch" role="switch" aria-checked="false" aria-label="Toggle light mode" title="Toggle light mode">
+          <span class="light-switch-paddle"></span>
+        </button>
       </nav>
     </div>
   </header>
@@ -36,7 +41,7 @@
   <main class="page-main">
 
     <section class="about" aria-label="About">
-      <p class="about-bio">Designer Product Builder who does [placeholder — bio coming soon].</p>
+      <p class="about-bio">I design products that 'just work'. Currently working at Amazon as a Sr. UX Designer designing the next generation CX Data Intelligence platform.</p>
     </section>
 
     <section class="projects" id="projects" aria-label="Projects">
