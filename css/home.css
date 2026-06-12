@@ -279,22 +279,26 @@ body.home-page {
   display: flex;
   flex-direction: column;
   gap: var(--space-xxs);
+  overflow: hidden; /* clips peek at carousel boundary */
 }
 
 .carousel-viewport {
   position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-md);
+  overflow: visible; /* peek bleeds out, clipped by .carousel */
+  touch-action: pan-y;
 }
 
 .carousel-track {
   display: flex;
+  gap: 12px;
   transition: transform 0.35s ease;
 }
 
 .carousel-slide {
-  flex: 0 0 100%;
-  width: 100%;
+  flex: 0 0 calc(100% - 40px); /* 40px = gap(12) + peek(28) on right */
+  width: calc(100% - 40px);
+  border-radius: var(--radius-md); /* moved from viewport */
+  overflow: hidden;
 }
 
 .slide-placeholder {

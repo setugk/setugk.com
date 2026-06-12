@@ -33,7 +33,7 @@ function initCarousels() {
 
     function goTo(n) {
       index = (n + slides.length) % slides.length;
-      track.style.transform = `translateX(-${index * 100}%)`;
+      track.style.transform = `translateX(-${slides[index].offsetLeft}px)`;
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
 
@@ -41,15 +41,32 @@ function initCarousels() {
     next?.addEventListener('click', () => goTo(index + 1));
     dots.forEach((d, i) => d.addEventListener('click', () => goTo(i)));
 
-    // Swipe gestures
+    // Swipe gestures — direction-locked so horizontal swipe never triggers page scroll
     const viewport = carousel.querySelector('.carousel-viewport');
     let swipeStartX = 0;
+    let swipeStartY = 0;
+    let swipeAxis   = null; // 'h' | 'v' | null — locked after first 5px of movement
+
     viewport.addEventListener('touchstart', (e) => {
       swipeStartX = e.touches[0].clientX;
+      swipeStartY = e.touches[0].clientY;
+      swipeAxis   = null;
     }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      if (swipeAxis === 'v') return;
+      const dx = Math.abs(e.touches[0].clientX - swipeStartX);
+      const dy = Math.abs(e.touches[0].clientY - swipeStartY);
+      if (swipeAxis === null && (dx > 5 || dy > 5)) {
+        swipeAxis = dx > dy ? 'h' : 'v';
+      }
+      if (swipeAxis === 'h') e.preventDefault();
+    }, { passive: false });
+
     viewport.addEventListener('touchend', (e) => {
+      if (swipeAxis !== 'h') return;
       const dx = swipeStartX - e.changedTouches[0].clientX;
-      if (Math.abs(dx) > 40) dx > 0 ? goTo(index + 1) : goTo(index - 1);
+      if (Math.abs(dx) > 30) dx > 0 ? goTo(index + 1) : goTo(index - 1);
     }, { passive: true });
   });
 }
