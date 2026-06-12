@@ -109,7 +109,7 @@ body.game-mode .nav-game-trigger { display: none; }
   background: var(--color-text-inactive);
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-  transform: translateY(11px); /* off (dark): paddle at bottom — 24-2-9-2 = 11px travel */
+  transform: translateY(9px); /* off (dark): paddle at bottom — (24-2borders)-2top-9paddle-2bottom = 9px travel */
   transition: transform 0.18s ease-in-out, background 0.18s;
 }
 
