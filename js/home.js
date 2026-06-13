@@ -491,6 +491,97 @@ function initTheme() {
   });
 }
 
+/* ---- Lightbox ---- */
+function initLightbox() {
+  const lightbox = document.getElementById('lightbox');
+  const inner    = lightbox.querySelector('.lightbox-inner');
+  const dotsRow  = lightbox.querySelector('.lightbox-dots-row');
+  const prevBtn  = lightbox.querySelector('.lightbox-prev');
+  const nextBtn  = lightbox.querySelector('.lightbox-next');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+
+  let slides = [];
+  let idx    = 0;
+
+  function render() {
+    const slide = slides[idx];
+    const img   = slide.querySelector('img');
+    inner.innerHTML = '';
+    if (img) {
+      const el  = document.createElement('img');
+      el.src    = img.src;
+      el.alt    = img.alt || '';
+      el.className = 'lightbox-image';
+      inner.appendChild(el);
+    } else {
+      const el  = document.createElement('div');
+      el.className = 'lightbox-placeholder';
+      inner.appendChild(el);
+    }
+
+    dotsRow.innerHTML = '';
+    if (slides.length > 1) {
+      slides.forEach((_, i) => {
+        const d = document.createElement('span');
+        d.className = 'dot' + (i === idx ? ' active' : '');
+        d.addEventListener('click', () => { idx = i; render(); });
+        dotsRow.appendChild(d);
+      });
+    }
+
+    const hasMult = slides.length > 1;
+    prevBtn.style.visibility = hasMult ? '' : 'hidden';
+    nextBtn.style.visibility = hasMult ? '' : 'hidden';
+  }
+
+  function open(carouselSlides, startIndex) {
+    slides = carouselSlides;
+    idx    = startIndex;
+    render();
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const carouselSlides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    carouselSlides.forEach((slide, i) => {
+      slide.addEventListener('click', () => {
+        if (document.body.classList.contains('game-mode')) return;
+        open(carouselSlides, i);
+      });
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
+  prevBtn.addEventListener('click', () => { idx = (idx - 1 + slides.length) % slides.length; render(); });
+  nextBtn.addEventListener('click', () => { idx = (idx + 1) % slides.length; render(); });
+
+  document.addEventListener('keydown', e => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft')  { idx = (idx - 1 + slides.length) % slides.length; render(); }
+    if (e.key === 'ArrowRight') { idx = (idx + 1) % slides.length; render(); }
+  });
+
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  lightbox.addEventListener('touchend', e => {
+    const dx = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(dx) > 50) {
+      idx = dx > 0
+        ? (idx + 1) % slides.length
+        : (idx - 1 + slides.length) % slides.length;
+      render();
+    }
+  }, { passive: true });
+}
+
 /* ---- Contact links ---- */
 function initContactLinks() {
   const emailLink = document.querySelector('.footer-links a[href^="mailto:"]');
@@ -508,6 +599,7 @@ function initContactLinks() {
 document.addEventListener('DOMContentLoaded', () => {
   initFilters();
   initCarousels();
+  initLightbox();
   initGame();
   initMagnetic();
   initActiveTracking();

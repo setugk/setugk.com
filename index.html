@@ -47,9 +47,9 @@
     <section class="projects" id="projects" aria-label="Projects">
 
       <div class="filter-tabs" role="tablist" aria-label="Filter projects">
-        <button class="filter-tab active" role="tab" aria-pressed="true" data-filter="all">All projects</button>
-        <button class="filter-tab" role="tab" aria-pressed="false" data-filter="fun">Built for fun</button>
-        <button class="filter-tab" role="tab" aria-pressed="false" data-filter="work">Built for work</button>
+        <button class="filter-tab active" role="tab" aria-pressed="true" data-filter="all">All</button>
+        <button class="filter-tab" role="tab" aria-pressed="false" data-filter="fun">Side projects</button>
+        <button class="filter-tab" role="tab" aria-pressed="false" data-filter="work">Amazon</button>
       </div>
 
       <ul class="project-list">
@@ -175,6 +175,22 @@
       </nav>
     </div>
   </footer>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="lightbox-stage">
+      <button class="lightbox-btn lightbox-prev" aria-label="Previous image">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <div class="lightbox-inner"></div>
+      <button class="lightbox-btn lightbox-next" aria-label="Next image">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+    <div class="lightbox-dots-row"></div>
+  </div>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/home.js"></script>
