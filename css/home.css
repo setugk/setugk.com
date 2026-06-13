@@ -321,13 +321,13 @@ body.home-page {
 
 .slide-placeholder {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   background: var(--color-bg-card);
 }
 
 .carousel-slide img {
   width: 100%;
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
 }
@@ -337,29 +337,29 @@ body.home-page {
   align-items: center;
   justify-content: space-between;
   padding: var(--space-xxs) 0;
+  padding-right: 40px; /* aligns next btn with right edge of active slide (peek = 40px) */
 }
 
 .carousel-btn {
-  background: none;
-  border: none;
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
   cursor: none;
   color: var(--color-text-secondary);
-  font-size: 20px;
-  line-height: 1;
   padding: 0;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   flex-shrink: 0;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
 }
 
 .carousel-btn:hover {
   color: var(--color-text-primary);
   background: var(--color-bg-card);
+  border-color: var(--color-text-inactive);
 }
 
 .carousel-dots {
@@ -373,12 +373,16 @@ body.home-page {
   height: 8px;
   border-radius: var(--radius-full);
   background: var(--color-border);
-  transition: background 0.2s;
+  transition: background 0.2s, width 0.2s;
   cursor: pointer;
   flex-shrink: 0;
 }
 
-.dot.active { background: var(--color-text-secondary); }
+.dot.active {
+  background: var(--color-text-secondary);
+  width: 20px;
+  border-radius: 100px;
+}
 
 /* ============================================
    STICKY CONTACT FOOTER
@@ -689,9 +693,9 @@ body.game-mode {
    LIGHT MODE
    ============================================ */
 body.light-mode {
-  --color-bg-primary:     #F5F0E8;
-  --color-bg-elevated:    #EDE8DF;
-  --color-bg-card:        #E2DBD0;
+  --color-bg-primary:     #EBE6DE;
+  --color-bg-elevated:    #E3DED5;
+  --color-bg-card:        #D8D1C6;
   --color-accent:         #C4A882;
   --color-text-primary:   #1C1814;
   --color-text-secondary: #7A6E62;
@@ -702,7 +706,7 @@ body.light-mode {
 }
 
 body.light-mode .top-nav {
-  background: rgba(240, 234, 224, 0.78);
+  background: rgba(230, 224, 214, 0.78);
   border-color: rgba(0, 0, 0, 0.07);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
@@ -756,8 +760,6 @@ body.light-mode .nav-game-trigger { color: var(--color-text-primary); }
   .game-hud   { padding: 0 var(--space-sm); }
   .nav-game-trigger { display: none; }
 
-  .carousel-slide img,
-  .slide-placeholder { aspect-ratio: 4 / 3; }
 }
 
 /* ============================================
@@ -773,7 +775,7 @@ body.light-mode .nav-game-trigger { color: var(--color-text-primary); }
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: 60px var(--space-sm) var(--space-sm);
+  padding: 56px var(--space-xs) var(--space-xs);
 }
 .lightbox[hidden] { display: none; }
 
@@ -800,7 +802,7 @@ body.light-mode .nav-game-trigger { color: var(--color-text-primary); }
   align-items: center;
   gap: var(--space-sm);
   width: 100%;
-  max-width: 960px;
+  max-width: 1440px;
 }
 
 .lightbox-btn {
@@ -829,7 +831,7 @@ body.light-mode .nav-game-trigger { color: var(--color-text-primary); }
 
 .lightbox-image {
   max-width: 100%;
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 120px);
   object-fit: contain;
   border-radius: var(--radius-md);
   display: block;
@@ -837,10 +839,10 @@ body.light-mode .nav-game-trigger { color: var(--color-text-primary); }
 
 .lightbox-placeholder {
   width: 100%;
+  max-width: min(100%, calc((100vh - 120px) * 4 / 3));
   aspect-ratio: 4 / 3;
   background: var(--color-bg-card);
   border-radius: var(--radius-md);
-  max-height: calc(100vh - 180px);
 }
 
 .lightbox-dots-row {
