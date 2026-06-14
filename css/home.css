@@ -294,15 +294,16 @@ body.home-page {
   display: flex;
   flex-direction: column;
   gap: var(--space-xxs);
-  overflow: hidden; /* clips peek at carousel boundary */
-  -webkit-mask-image: linear-gradient(to right, black calc(100% - 48px), transparent 100%);
-  mask-image: linear-gradient(to right, black calc(100% - 48px), transparent 100%);
+  /* No overflow/mask clip here — both would cut off the magnetic-nudged prev button
+     in .carousel-controls. Clipping + right-edge fade live on .carousel-viewport instead. */
 }
 
 .carousel-viewport {
   position: relative;
-  overflow: visible; /* peek bleeds out, clipped by .carousel */
+  overflow: hidden; /* clips the sliding track (peek + off-screen slides) */
   touch-action: pan-y;
+  -webkit-mask-image: linear-gradient(to right, black calc(100% - 48px), transparent 100%);
+  mask-image: linear-gradient(to right, black calc(100% - 48px), transparent 100%);
 }
 
 .carousel-track {
