@@ -68,6 +68,19 @@ function initCarousels() {
       const dx = swipeStartX - e.changedTouches[0].clientX;
       if (Math.abs(dx) > 30) dx > 0 ? goTo(index + 1) : goTo(index - 1);
     }, { passive: true });
+
+    // Horizontal mouse wheel (extra mouse buttons / horizontal trackpad scroll)
+    let wheelCooldown = false;
+    viewport.addEventListener('wheel', (e) => {
+      const ax = Math.abs(e.deltaX);
+      const ay = Math.abs(e.deltaY);
+      if (ax < 10 || ay > ax) return;
+      e.preventDefault();
+      if (wheelCooldown) return;
+      wheelCooldown = true;
+      e.deltaX > 0 ? goTo(index + 1) : goTo(index - 1);
+      setTimeout(() => { wheelCooldown = false; }, 400);
+    }, { passive: false });
   });
 }
 
@@ -482,7 +495,7 @@ function initTheme() {
     sw.setAttribute('aria-checked', String(isLight));
   };
 
-  apply(localStorage.getItem('theme') === 'light');
+  apply(localStorage.getItem('theme') !== 'dark');
 
   sw.addEventListener('click', () => {
     const isLight = !document.body.classList.contains('light-mode');
