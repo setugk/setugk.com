@@ -392,31 +392,39 @@ body.home-page {
    ============================================ */
 .contact-footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--color-bg-primary);
-  border-top: 1px solid var(--color-border);
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 48px);
+  max-width: 1392px;
+  background: rgba(18, 18, 18, 0.50);
+  backdrop-filter: blur(8px) saturate(1);
+  -webkit-backdrop-filter: blur(8px) saturate(1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   z-index: 10;
-  min-height: 56px;
+}
+
+body.light-mode .contact-footer {
+  background: rgba(230, 224, 214, 0.78);
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 body.game-mode .contact-footer { display: none; }
 
 .footer-inner {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: var(--space-xs) var(--space-xl);
+  padding: var(--space-sm) var(--space-lg);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 56px;
 }
 
 .footer-label {
   font-size: var(--font-size-base);
-  font-weight: 700;
-  color: var(--color-text-primary);
+  font-weight: 400;
+  color: var(--color-text-secondary);
 }
 
 .footer-links { display: flex; gap: var(--space-md); }
@@ -432,10 +440,10 @@ body.game-mode .contact-footer { display: none; }
 
 .footer-links a:hover { color: var(--color-text-primary); }
 
-/* Clipboard copy toast — slides up from behind the footer */
+/* Clipboard copy toast — appears above the floating footer */
 .copy-toast {
   position: fixed;
-  bottom: 72px;  /* 56px footer + 16px gap */
+  bottom: 84px;  /* 12px offset + ~56px footer + 16px gap */
   left: 50%;
   transform: translateX(-50%) translateY(calc(100% + 80px));  /* starts below viewport */
   background: var(--color-bg-elevated);
