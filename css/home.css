@@ -354,13 +354,15 @@ body.home-page {
   justify-content: center;
   border-radius: 50%;
   flex-shrink: 0;
-  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  opacity: 0.5;
+  transition: color 0.15s, background 0.15s, border-color 0.15s, opacity 0.15s;
 }
 
 .carousel-btn:hover {
   color: var(--color-text-primary);
   background: var(--color-bg-card);
   border-color: var(--color-text-inactive);
+  opacity: 1;
 }
 
 .carousel-dots {
