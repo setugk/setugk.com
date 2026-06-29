@@ -125,6 +125,7 @@ body.game-mode .nav-game-trigger { display: none; }
   cursor: pointer;
   padding: 0;
   flex-shrink: 0;
+  transform: rotate(90deg);
   transition: border-color 0.2s;
 }
 
