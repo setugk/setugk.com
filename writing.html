@@ -8,73 +8,59 @@
   <link rel="stylesheet" href="css/home.css">
 </head>
 <body class="home-page">
-<script>if(localStorage.getItem('theme')!=='dark')document.body.classList.add('light-mode');</script>
+<script>if(localStorage.getItem('theme')!=='dark')document.body.classList.add('light-mode');history.scrollRestoration='manual';</script>
 
   <div class="bg-atmo" aria-hidden="true"></div>
 
-  <header class="top-nav">
-    <div class="nav-inner">
-      <a class="top-nav-name" href="/">Setu Kathawate</a>
-      <nav class="top-nav-links" aria-label="Site navigation">
-        <a href="index.html">Projects</a>
-        <a href="writing.html" class="nav-current">Writing</a>
-        <a href="Setu Kathawate - Product Designer Resume.pdf" target="_blank" rel="noopener">Resume</a>
-        <button class="light-switch" role="switch" aria-checked="false" aria-label="Toggle light mode" title="Toggle light mode">
-          <span class="light-switch-paddle"></span>
-        </button>
-      </nav>
-    </div>
-  </header>
+  <header class="top-nav"></header>
 
   <main class="page-main">
-    <h1 class="writing-page-title">Writing</h1>
-    <ul class="writing-list">
 
-      <li class="writing-row">
-        <a href="writing/connected-steering.html" class="writing-link">
-          <h2 class="writing-title">The Connected Steering System</h2>
-          <p class="writing-excerpt">How structured context files create continuity across AI sessions. Instead of starting every session from scratch, you hand AI a document that explains who you are, what you're building, and how you like to work.</p>
-          <span class="writing-date">Jun 2026</span>
-        </a>
-      </li>
+    <nav class="page-tabs" aria-label="Section navigation">
+      <a href="/" class="page-tab">Projects</a>
+      <a href="writing.html" class="page-tab page-tab--active">Writing</a>
+    </nav>
 
-      <li class="writing-row">
-        <a href="writing/shepherd.html" class="writing-link">
-          <h2 class="writing-title">Shepherd Risk Prevention with Kiro</h2>
-          <p class="writing-excerpt">Turning security vulnerabilities into preventable patterns. On most teams, security review is the last step — when the code is already written and changing it is painful.</p>
-          <span class="writing-date">May 2026</span>
-        </a>
-      </li>
+    <section class="projects" aria-label="Writing">
+      <ul class="project-list">
 
-      <li class="writing-row">
-        <a href="writing/design-intelligence.html" class="writing-link">
-          <h2 class="writing-title">Building a Design Intelligence Platform</h2>
-          <p class="writing-excerpt">From spreadsheets to a unified data experience for UX teams. The problem wasn't data — it was that no one could see what the data was saying.</p>
-          <span class="writing-date">Mar 2026</span>
-        </a>
-      </li>
+        <li class="project-item">
+          <a class="project-link" href="writing/connected-steering.html">
+            <span class="project-title">The Connected Steering System</span>
+            <div class="project-byline">
+              <span class="tag">essay</span>
+              <span class="project-date">06.2026</span>
+            </div>
+          </a>
+        </li>
 
-    </ul>
+        <li class="project-item">
+          <a class="project-link" href="writing/shepherd.html">
+            <span class="project-title">Shepherd Risk Prevention with Kiro</span>
+            <div class="project-byline">
+              <span class="tag">essay</span>
+              <span class="project-date">05.2026</span>
+            </div>
+          </a>
+        </li>
+
+        <li class="project-item">
+          <a class="project-link" href="writing/design-intelligence.html">
+            <span class="project-title">Building a Design Intelligence Platform</span>
+            <div class="project-byline">
+              <span class="tag">essay</span>
+              <span class="project-date">03.2026</span>
+            </div>
+          </a>
+        </li>
+
+      </ul>
+    </section>
+
   </main>
 
-  <footer class="contact-footer" aria-label="Contact">
-    <div class="footer-inner">
-      <span class="footer-label">Contact</span>
-      <nav class="footer-links" aria-label="Contact links">
-        <a href="mailto:hi@setugk.com">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Email
-        </a>
-        <a href="https://linkedin.com/in/setukathawate" target="_blank" rel="noopener noreferrer">
-          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-            <rect x="2" y="9" width="4" height="12"/>
-            <circle cx="4" cy="4" r="2"/>
-          </svg>LinkedIn
-        </a>
-      </nav>
-    </div>
-  </footer>
+  <footer class="contact-footer" aria-label="Contact"></footer>
 
-  <script src="js/writing.js"></script>
+  <script src="js/nav.js"></script>
 </body>
 </html>
