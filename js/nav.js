@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const path           = window.location.pathname;
   const onPage         = (name) => path.endsWith(name) ? ' class="nav-current"' : '';
   const isHome         = path === '/' || path.endsWith('index.html');
-  const isWritingList  = path.endsWith('writing.html');
+  const isWritingList  = path.endsWith('writing.html') || path.endsWith('/writing') || path === '/writing';
   const isLevel1       = isHome || isWritingList;
   const isWritingDeep  = !isLevel1 && path.includes('/writing');
   const crumbHref      = isWritingDeep ? '/writing.html' : '/';
