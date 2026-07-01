@@ -316,7 +316,7 @@ function hitBird(bird) {
   const frozen = document.createElement('div');
   frozen.style.cssText = `
     position: fixed; left: ${rect.left}px; top: ${rect.top}px;
-    opacity: 1; color: var(--color-teal);
+    opacity: 1; color: var(--color-accent);
     pointer-events: none; z-index: 15; transform-origin: center center;
   `;
   frozen.innerHTML = bird.innerHTML;
