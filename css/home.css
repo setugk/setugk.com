@@ -10,6 +10,19 @@ html { scrollbar-gutter: stable; }
 /* ============================================
    TOP NAV
    ============================================ */
+/* Solid strips covering the 12px gaps above nav and below footer */
+body.home-page::before,
+body.home-page::after {
+  content: '';
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 12px;
+  background: var(--color-bg-primary);
+  z-index: 11;
+}
+body.home-page::before { top: 0; }
+body.home-page::after  { bottom: 0; }
 .top-nav {
   position: fixed;
   top: 12px;
@@ -834,7 +847,7 @@ body.light-mode .project-link:hover .project-byline .project-date::before {
 
 body.light-mode .top-nav,
 body.light-mode .contact-footer {
-  background: rgba(235, 230, 222, 0.85);
+  background: rgba(235, 230, 222, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
